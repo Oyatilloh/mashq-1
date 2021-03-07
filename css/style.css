@@ -1,0 +1,63 @@
+html{
+	box-sizing: border-box;
+}
+*,
+*::before,
+*::after{
+	box-sizing: inherit;
+}
+body{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+.heart{
+	position: relative;
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 200px;
+	transform: rotate(45deg) scale(1.2);
+	animation-name: heart-beat;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-timing-function: cubic-bezier(.81,.18,.84,1.13);
+}
+.heart span{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	font-size: 50px;
+	font-weight: bold;
+	color: white;
+	transform: translate(-70%,-60% ) rotate(-45deg);
+	z-index: 45;
+
+}
+.heart::before,
+.heart::after{
+	position: absolute;
+	content: "";
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	background-color: red;
+}
+.heart::before{
+	left: -50%;
+}
+.heart::after{
+	top: -50%;
+}
+@keyframes heart-beat{
+	from{
+		transform: rotate(45deg);
+	}
+	to{
+		transform: rotate(45deg) scale(1.2);
+	}
+}
